@@ -4,13 +4,23 @@ public class Insect {
     private int x;
     private int y;
 
-    private final double DIST_WEIGHT_LOSS_FACTOR = .0001;
+    //static constants / variables
+    public final double DIST_WEIGHT_LOSS_FACTOR = .0001;
+    private static int population = 0;
+    private static final String[] FACTS = {
+            "Fact 1",
+            "Fact 2",
+            "Fact 3",
+            "Fact 4",
+            "Fact 5"
+    };
 
     //constructor
     public Insect(double initWeight, int initX, int initY) {
         weight = initWeight;
         x = initX;
         y = initY;
+        population++;
     }
 
     //methods
@@ -37,12 +47,22 @@ public class Insect {
         return Math.sqrt((y2 - y1) * (y2 - y1) + (x2 - x1) * (x2 - x1));
     }
 
+    public static String produceRandomFact() {
+        int index = (int)(Math.random() * ((FACTS.length - 1) +1));
+        return FACTS[index];
+    }
+
+
     public static void main(String[] args){
+        System.out.println("Insect Population: " + population);
         Insect bug1 = new Insect(10, 100, 90);
+        System.out.println("Insect Population: " + population);
         Insect bug2 = new Insect(9.5, -300, 400);
+        System.out.println("Insect Population: " + population);
 
         bug1.move(1,10);
         bug2.move(-300,400);
 
+        System.out.println(produceRandomFact());
     }
 }
