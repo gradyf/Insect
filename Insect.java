@@ -37,7 +37,7 @@ public class Insect {
     }
     public void setX(int newX) {
         if (islegalX(newX)) {
-            x = newX;
+            this.x = newX;
         }
     }
     public int getY() {
@@ -45,7 +45,7 @@ public class Insect {
     }
     public void setY(int newY){
         if(islegalY(newY)){
-            y = newY;
+            this.y = newY;
         }
     }
     public static boolean islegalX(int newX) {
@@ -82,6 +82,11 @@ public class Insect {
         int index = (int)(Math.random() * ((FACTS.length - 1) +1));
         return FACTS[index];
     }
+
+    public String toString() {
+        return "weight: " + weight + ", x: " + x +", y: " + y;
+    }
+
     public static void main(String[] args){
         System.out.println("Insect Population: " + population);
         Insect bug1 = new Insect(10, 100, 90);
